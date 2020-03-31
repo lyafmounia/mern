@@ -1,6 +1,6 @@
 import Person from '../models/personModel';
 import moment from 'moment';
-import jwt from 'jwt';
+import jwt from 'jwt-simple';
 
 export const signUp = async (req, res) => {
     let person = new Person(req, body);
