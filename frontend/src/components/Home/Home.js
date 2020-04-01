@@ -1,13 +1,16 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import sampleFishes from '../../sample-fishes';
 import Fish from '../Fish/Fish';
 import './Home.scss';
 
 const Home = () => {
-  const [fishes, setFishes] = useState({});
+  const [fishes, setFishes] = useState({ data: [] });
 
   useEffect(() => {
-    setFishes(sampleFishes);
+    axios
+      .get('http://localhost:3000/fish/')
+      .then(response => response.data)
+      .then(data => setFishes(data));
   }, [fishes]);
 
   return (
